@@ -1,0 +1,272 @@
+<!DOCTYPE html>
+<html lang="th">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Form สมัครนักศึกษา</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            justify-content: center;
+            align-items: flex-start; /* Changed from center to flex-start */
+            height: 135vh;
+            background-color: #e0e0ff;
+            padding-top: 50px; /* Add padding at the top */
+        }
+        .container {
+            background: #fff;
+            padding: 20px;
+            box-shadow: 0 0 15px rgba(0, 0, 0, 0.2);
+            border-radius: 15px;
+            width: 90%;
+            max-width: 1200px;
+            margin-top: 50px; /* Add margin at the top */
+        }
+        .container h1 {
+            text-align: center;
+            margin-bottom: 15px;
+            color: #4a148c;
+        }
+        .form-group {
+            margin-bottom: 10px;
+            flex: 1;
+            min-width: calc(20% - 10px);
+            box-sizing: border-box;
+        }
+        .form-group label {
+            display: block;
+            margin-bottom: 5px;
+            color: #4a148c;
+        }
+        .form-group input, .form-group select {
+            width: 100%;
+            padding: 8px;
+            margin: 3px 0;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            box-sizing: border-box;
+        }
+        .form-group input:required, .form-group select:required {
+            border-left: 5px solid #8e24aa;
+        }
+        .form-group span {
+            display: block;
+            margin-top: 3px;
+            color: red;
+            font-size: 0.875em;
+        }
+        .row {
+            display: flex;
+            justify-content: space-between;
+            flex-wrap: wrap;
+            margin-bottom: 10px;
+        }
+        .row.full-width .form-group {
+            width: 100%;
+        }
+        .form-actions {
+            display: flex;
+            justify-content: center;
+            margin-top: 15px;
+        }
+        .form-actions button {
+            padding: 8px 15px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            margin: 0 10px;
+        }
+        .btn-submit {
+            background-color: #6a1b9a;
+            color: white;
+        }
+        .btn-submit:hover {
+            background-color: #4a148c;
+        }
+        .btn-cancel {
+            background-color: #d32f2f;
+            color: white;
+        }
+        .btn-cancel:hover {
+            background-color: #b71c1c;
+        }
+    </style>
+</head>
+<body>
+
+<div class="container">
+    <h1>สมัครนักศึกษา</h1>
+    <form id="studentForm">
+        <div class="row full-width">
+            <div class="form-group" style="width: 100%;">
+                <label for="faculty">คณะ / สาขาที่ต้องการสมัคร *</label>
+                <select id="faculty" name="faculty" required>
+                    <option value="">เลือก..</option>
+                    <option value="engineering">วิศวกรรมศาสตร์</option>
+                    <option value="science">วิทยาศาสตร์</option>
+                    <option value="arts">อักษรศาสตร์</option>
+                </select>
+                <span id="facultyError"></span>
+            </div>
+        </div>
+        <div class="row">
+            <div class="form-group">
+                <label for="nationality">สัญชาติ *</label>
+                <select id="nationality" name="nationality" required>
+                    <option value="">เลือก..</option>
+                    <option value="thai">ไทย</option>
+                    <option value="other">อื่นๆ</option>
+                </select>
+                <span id="nationalityError"></span>
+            </div>
+            <div class="form-group">
+                <label for="gender">เพศ *</label>
+                <select id="gender" name="gender" required>
+                    <option value="">เลือก..</option>
+                    <option value="male">ชาย</option>
+                    <option value="female">หญิง</option>
+                    <option value="other">อื่นๆ</option>
+                </select>
+                <span id="genderError"></span>
+            </div>
+        </div>
+        <div class="row">
+            <div class="form-group">
+                <label for="prefix">คำนำหน้าชื่อ *</label>
+                <select id="prefix" name="prefix" required>
+                    <option value="">เลือก..</option>
+                    <option value="mr">นาย</option>
+                    <option value="mrs">นาง</option>
+                    <option value="miss">นางสาว</option>
+                </select>
+                <span id="prefixError"></span>
+            </div>
+            <div class="form-group">
+                <label for="firstName">ชื่อ *</label>
+                <input type="text" id="firstName" name="firstName" required>
+                <span id="firstNameError"></span>
+            </div>
+            <div class="form-group">
+                <label for="lastName">นามสกุล *</label>
+                <input type="text" id="lastName" name="lastName" required>
+                <span id="lastNameError"></span>
+            </div>
+            <div class="form-group">
+                <label for="citizenID">บัตรประชาชน *</label>
+                <input type="text" id="citizenID" name="citizenID" required>
+                <span id="citizenIDError"></span>
+            </div>
+            <div class="form-group">
+                <label for="phone">เบอร์โทรศัพท์ *</label>
+                <input type="tel" id="phone" name="phone" required>
+                <span id="phoneError"></span>
+            </div>
+        </div>
+        <div class="row">
+            <div class="form-group">
+                <label for="idLine">ID Line</label>
+                <input type="text" id="idLine" name="idLine">
+                <span id="idLineError"></span>
+            </div>
+            <div class="form-group">
+                <label for="facebook">Facebook</label>
+                <input type="text" id="facebook" name="facebook">
+                <span id="facebookError"></span>
+            </div>
+            <div class="form-group">
+                <label for="email">อีเมล</label>
+                <input type="email" id="email" name="email">
+                <span id="emailError"></span>
+            </div>
+        </div>
+        <div class="row">
+            <div class="form-group">
+                <label for="education">วุฒิการศึกษา *</label>
+                <select id="education" name="education" required>
+                    <option value="">เลือก..</option>
+                    <option value="highschool">มัธยมปลาย</option>
+                    <option value="vocational">ปวช.</option>
+                    <option value="diploma">ปวส.</option>
+                </select>
+                <span id="educationError"></span>
+            </div>
+            <div class="form-group">
+                <label for="schoolName">ชื่อสถานศึกษาเดิม *</label>
+                <input type="text" id="schoolName" name="schoolName" required>
+                <span id="schoolNameError"></span>
+            </div>
+            <div class="form-group">
+                <label for="province">จังหวัด *</label>
+                <select id="province" name="province" required>
+                    <option value="">เลือก..</option>
+                    <option value="bangkok">กรุงเทพมหานคร</option>
+                    <option value="chiangmai">เชียงใหม่</option>
+                    <option value="chonburi">ชลบุรี</option>
+                    <!-- Add more options as needed -->
+                </select>
+                <span id="provinceError"></span>
+            </div>
+        </div>
+        <div class="row">
+            <div class="form-group">
+                <label for="gpa">ผลการเรียนเฉลี่ย (GPA) *</label>
+                <input type="text" id="gpa" name="gpa" required>
+                <span id="gpaError"></span>
+            </div>
+            <div class="form-group">
+                <label for="studyField">สาขาวิชาที่เรียน *</label>
+                <input type="text" id="studyField" name="studyField" required>
+                <span id="studyFieldError"></span>
+            </div>
+        </div>
+        <div class="row full-width">
+            <div class="form-group" style="width: 100%;">
+                <label for="educationObjective">มีความต้องการขอรับทุนการศึกษา *</label>
+                <select id="educationObjective" name="educationObjective" required>
+                    <option value="">เลือก..</option>
+                    <option value="yes">ต้องการ</option>
+                    <option value="no">ไม่ต้องการ</option>
+                </select>
+                <span id="educationObjectiveError"></span>
+            </div>
+        </div>
+        <div class="row full-width">
+            <div class="form-group" style="width: 100%;">
+                <label for="document">เอกสารแนบ</label>
+                <input type="file" id="document" name="document">
+            </div>
+        </div>
+        <div class="form-actions">
+            <button type="submit" class="btn-submit">ยืนยัน</button>
+            <button type="reset" class="btn-cancel">ยกเลิก</button>
+        </div>
+    </form>
+</div>
+
+<script>
+    document.getElementById('studentForm').addEventListener('submit', function(event) {
+        let isValid = true;
+        const requiredFields = ['faculty', 'nationality', 'gender', 'firstName', 'lastName', 'citizenID', 'phone', 'education', 'schoolName', 'gpa', 'studyField', 'educationObjective'];
+        
+        requiredFields.forEach(field => {
+            const input = document.getElementById(field);
+            const errorElement = document.getElementById(field + 'Error');
+            if (!input.value) {
+                isValid = false;
+                errorElement.textContent = 'กรุณากรอกข้อมูลให้ครบถ้วน';
+            } else {
+                errorElement.textContent = '';
+            }
+        });
+
+        if (!isValid) {
+            event.preventDefault();
+        }
+    });
+</script>
+
+</body>
+</html>

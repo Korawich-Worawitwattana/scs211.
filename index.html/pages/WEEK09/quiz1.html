@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Line Chart Example</title>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <style>
+        body {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+            background: #f4f4f9; /* Light background color */
+            font-family: Arial, sans-serif;
+        }
+
+        .chart-container {
+            width: 80%;
+            max-width: 900px;
+            background: #ffffff; /* White background for the container */
+            border-radius: 10px; /* Rounded corners */
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Soft shadow */
+            padding: 20px; /* Add some padding */
+        }
+
+        canvas {
+            display: block;
+            width: 100%;
+            height: 400px; /* Set a fixed height */
+        }
+    </style>
+</head>
+<body>
+
+    <div class="chart-container">
+        <canvas id="myChart"></canvas>
+    </div>
+
+    <script>
+        const ctx = document.getElementById('myChart').getContext('2d');
+        const myChart = new Chart(ctx, {
+            type: 'line',
+            data: {
+                labels: ['2558', '2559', '2560', '2561', '2562', '2563', '2564', '2565', '2566'],
+                datasets: [{
+                    label: 'จำนวนนักศึกษาวิทยาการคอมพิวเตอร์ตั้งแต่ปี 2558 - 2566',
+                    data: [32, 27, 48, 31, 52, 16, 35, 50, 49],
+                    borderColor: 'rgba(75, 192, 192, 1)',
+                    borderWidth: 2,
+                    fill: false,
+                    pointBackgroundColor: 'rgba(75, 192, 192, 1)', // Point color
+                    pointBorderColor: '#fff', // Point border color
+                    pointBorderWidth: 2, // Point border width
+                    pointRadius: 5 // Point radius
+                }]
+            },
+            options: {
+                responsive: true,
+                plugins: {
+                    legend: {
+                        position: 'top', // Position of the legend
+                        labels: {
+                            font: {
+                                size: 14 // Font size for legend
+                            }
+                        }
+                    },
+                    tooltip: {
+                        backgroundColor: '#000', // Tooltip background color
+                        titleColor: '#fff', // Tooltip title color
+                        bodyColor: '#fff', // Tooltip body color
+                        borderColor: 'rgba(75, 192, 192, 0.2)', // Tooltip border color
+                        borderWidth: 1 // Tooltip border width
+                    },
+                    title: {
+                        display: true,
+                        
+                        font: {
+                            size: 18 // Title font size
+                        },
+                        padding: {
+                            bottom: 20 // Title padding
+                        }
+                    }
+                },
+                scales: {
+                    x: {
+                        ticks: {
+                            font: {
+                                size: 12 // Font size for x-axis labels
+                            }
+                        }
+                    },
+                    y: {
+                        beginAtZero: true,
+                        max: 60,
+                        ticks: {
+                            font: {
+                                size: 12 // Font size for y-axis labels
+                            }
+                        }
+                    }
+                }
+            }
+        });
+    </script>
+
+</body>
+</html>
